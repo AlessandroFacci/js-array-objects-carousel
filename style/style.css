@@ -1,0 +1,108 @@
+/*# GENERALS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*# WRAPPER */
+.wrapper {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# SLIDE CONTAINER */
+.container-slides {
+  width: 80%;
+  height: 60%;
+  margin: 0 auto;
+  display: flex;
+  /* debug */
+  /* border: 2px solid black; */
+}
+
+/*# GREAT SLIDE */
+
+.container-slides > .great-slides-container {
+  width: 80%;
+  height: 100%;
+  /* debug */
+  /* border: 2px dashed red; */
+}
+
+.great-slides-container > .slide {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+}
+
+.great-slides-container > .slide > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*# SMALL SLIDE */
+
+.container-slides > .small-slides-container {
+  width: 20%;
+  height: 100%;
+
+  position: relative;
+  /* debug */
+  /* border: 2px dashed red; */
+}
+
+.small-slides-container > .small-slide {
+  width: 100%;
+  height: calc(100% / 5);
+  /* debug */
+  /* border: 2px solid orange; */
+}
+
+.small-slides-container > .small-slide > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*# CONTROLS */
+
+.controls {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* up */
+.controls.arrow-up {
+  top: 3%;
+  left: 45%;
+}
+
+/* down */
+.controls.arrow-down {
+  bottom: 3%;
+  left: 45%;
+}
+
+/*# SLIDE TEXT */
+
+.slide-text {
+  position: absolute;
+  bottom: 0;
+
+  text-align: right;
+  margin: 0 1rem 0 2.5rem;
+  color: white;
+}
