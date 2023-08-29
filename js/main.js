@@ -31,22 +31,24 @@ const images = [
 
 //creare carosello
 
-//# Milestone 1
+//# Milestone 1 e 2
 
 //recupero il contenitore dove inserirò le slide
 const slideContainer = document.getElementById("great-slides");
 
 let activeSlide = 0;
 
+//uso l'array per popolare il carosello
 images.forEach((img, index) => {
   console.log(img);
+
   const slide = document.createElement("div");
   slide.classList.add("slide");
 
   if (index == activeSlide) slide.classList.add("active");
 
   slide.innerHTML = `
-<img src="./${img.image}" alt="img" />
+<img src="./${img.image}" alt="img"  />
 <div class="slide-text">
   <h5>${img.title}</h5>
   <p>
@@ -61,3 +63,43 @@ images.forEach((img, index) => {
 });
 
 console.log(images);
+
+//recupero i controlli
+const nextButton = document.getElementById("arrow-down");
+const prevButton = document.getElementById("arrow-up");
+
+//bottone avanti
+nextButton.addEventListener("click", goNext);
+
+//funzione bottone avanti
+function goNext() {
+  const oldSlide = images[activeSlide].HTMLnode;
+  oldSlide.classList.remove("active");
+
+  activeSlide++;
+
+  if (activeSlide >= images.length) {
+    activeSlide = 0;
+  }
+
+  const newSlide = images[activeSlide];
+  newSlide.classList.add("active");
+}
+
+//bottone indietro
+nextButton.addEventListener("click", goPrev);
+
+//funzione bottone indietro
+function goPrev() {
+  const oldSlide = images[activeSlide].HTMLnode;
+  oldSlide.classList.remove("active");
+
+  activeSlide--;
+
+  if (activeSlide < 0) {
+    images.length - 1;
+  }
+
+  const newSlide = images[activeSlide];
+  newSlide.classList.add("active");
+}
