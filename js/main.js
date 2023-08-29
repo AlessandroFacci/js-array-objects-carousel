@@ -64,16 +64,18 @@ images.forEach((img, index) => {
 
 console.log(images);
 
+const allSlide = document.getElementsByClassName("slide");
+
 //recupero i controlli
-const nextButton = document.getElementById("arrow-down");
-const prevButton = document.getElementById("arrow-up");
+const nextButton = document.getElementById("next-button");
+const prevButton = document.getElementById("prev-button");
 
 //bottone avanti
 nextButton.addEventListener("click", goNext);
 
 //funzione bottone avanti
 function goNext() {
-  const oldSlide = images[activeSlide].HTMLnode;
+  const oldSlide = allSlide[activeSlide];
   oldSlide.classList.remove("active");
 
   activeSlide++;
@@ -82,24 +84,24 @@ function goNext() {
     activeSlide = 0;
   }
 
-  const newSlide = images[activeSlide];
+  const newSlide = allSlide[activeSlide];
   newSlide.classList.add("active");
 }
 
 //bottone indietro
-nextButton.addEventListener("click", goPrev);
+prevButton.addEventListener("click", goPrev);
 
 //funzione bottone indietro
 function goPrev() {
-  const oldSlide = images[activeSlide].HTMLnode;
+  const oldSlide = allSlide[activeSlide];
   oldSlide.classList.remove("active");
 
   activeSlide--;
 
   if (activeSlide < 0) {
-    images.length - 1;
+    activeSlide = images.length - 1;
   }
 
-  const newSlide = images[activeSlide];
+  const newSlide = allSlide[activeSlide];
   newSlide.classList.add("active");
 }
