@@ -28,3 +28,36 @@ const images = [
 ];
 
 // # Milestone 0
+
+//creare carosello
+
+//# Milestone 1
+
+//recupero il contenitore dove inserirò le slide
+const slideContainer = document.getElementById("great-slides");
+
+let activeSlide = 0;
+
+images.forEach((img, index) => {
+  console.log(img);
+  const slide = document.createElement("div");
+  slide.classList.add("slide");
+
+  if (index == activeSlide) slide.classList.add("active");
+
+  slide.innerHTML = `
+<img src="./${img.image}" alt="img" />
+<div class="slide-text">
+  <h5>${img.title}</h5>
+  <p>
+  ${img.text}
+  </p>
+</div>
+  `;
+
+  img.HTMLnode = slide;
+
+  slideContainer.append(slide);
+});
+
+console.log(images);

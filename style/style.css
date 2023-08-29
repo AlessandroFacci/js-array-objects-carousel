@@ -46,6 +46,10 @@
   object-fit: cover;
 }
 
+.active {
+  display: block;
+}
+
 /*# SMALL SLIDE */
 
 .container-slides > .small-slides-container {
